@@ -5,15 +5,14 @@ base:
 
 data_source:
   s3_source_cat: data_given/cat
-  s3_source_dog: data_given/cat
+  s3_source_dog: data_given/dog
 
 load_data:
-  raw_dataset_cat: data/raw/cat
-  raw_dataset_dog: data/raw/dog
+  raw_dataset_csv: data/raw/pets.csv
 
 split_data:
-  train_path: data/processed/train.csv
-  test_path: data/processed/test.csv
+  train_path: data/processed/train_pets.csv
+  test_path: data/processed/test_pets.csv
   test_size: 0.2
 
   
