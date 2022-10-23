@@ -1,0 +1,26 @@
+base:
+  project: cat-dog-classification
+  random_state: 42
+  target_col: target
+
+data_source:
+  s3_source_cat: data_given/cat
+  s3_source_dog: data_given/cat
+
+load_data:
+  raw_dataset_cat: data/raw/cat
+  raw_dataset_dog: data/raw/dog
+
+split_data:
+  train_path: data/processed/train.csv
+  test_path: data/processed/test.csv
+  test_size: 0.2
+
+  
+reports:
+  params: report/params.json
+  scores: report/scores.json
+
+model_dir: saved_models
+
+webapp_model_dir: prediction_service/model/model.joblib
