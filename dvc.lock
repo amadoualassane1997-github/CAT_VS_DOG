@@ -1,0 +1,39 @@
+schema: '2.0'
+stages:
+  load_data:
+    cmd: python src/load_data.py --config=params.yaml
+    deps:
+    - path: data_given/Cat
+      md5: defd0f77d29eb4b2ec2bc054e299a4e2.dir
+      size: 392566895
+      nfiles: 12500
+    - path: data_given/Dog
+      md5: 64c1626f4590451549649ec8e54586a3.dir
+      size: 473591356
+      nfiles: 12501
+    - path: src/get_data.py
+      md5: 2334fec4b3b7600930978ebc4e48d009
+      size: 1317
+    - path: src/load_data.py
+      md5: 6eff19b6e3119c0aa101662688742310
+      size: 490
+    outs:
+    - path: data/raw/pets.csv
+      md5: 50d504b9eb8e1ceae560fb1a349a7056
+      size: 677821
+  split_data:
+    cmd: python src/split_data.py --config=params.yaml
+    deps:
+    - path: data/raw/pets.csv
+      md5: 50d504b9eb8e1ceae560fb1a349a7056
+      size: 677821
+    - path: src/split_data.py
+      md5: a35f54f93f28e16d5c2261572254b936
+      size: 976
+    outs:
+    - path: data/processed/test_pets.csv
+      md5: df4ac201d29cd132702dbd9dc1bfeffb
+      size: 135648
+    - path: data/processed/train_pets.csv
+      md5: f6d2c6e21f78d4e0b08b97af0d883f63
+      size: 542186
